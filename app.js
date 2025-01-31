@@ -1,5 +1,19 @@
-// Array para almacenar los nombres de los amigos 
+// Array para almacenar los nombres de los amigos
 let amigos = [];
+
+// Función para mostrar la alerta personalizada
+function mostrarAlerta(mensaje) {
+    const alerta = document.getElementById('alerta');
+    const mensajeAlerta = document.getElementById('mensaje-alerta');
+    mensajeAlerta.textContent = mensaje;
+    alerta.style.display = 'flex';  // Mostrar la alerta
+}
+
+// Función para cerrar la alerta personalizada
+function cerrarAlerta() {
+    const alerta = document.getElementById('alerta');
+    alerta.style.display = 'none'; // Ocultar la alerta
+}
 
 // Función para agregar un amigo al array
 function agregarAmigo() {
@@ -8,13 +22,13 @@ function agregarAmigo() {
 
     // Validar que el campo no esté vacío
     if (nombreAmigo === '') {
-        alert('Debes ingresar un nombre');
+        mostrarAlerta('Debes ingresar un nombre');
         return;  // Detiene la ejecución de la función
     }
 
     // Validar que el nombre no se repita
     if (amigos.includes(nombreAmigo)) {
-        alert('Este amigo ya fue agregado');
+        mostrarAlerta('Este amigo ya fue agregado');
         return;
     }
 
@@ -50,7 +64,7 @@ function actualizarListaAmigos() {
 function sortearAmigo() {
     // Validar que haya amigos en la lista
     if (amigos.length === 0) { // Comprueba si el array está vacío.   
-        alert('No hay amigos en la lista');
+        mostrarAlerta('No hay amigos en la lista');
         return;
     }
 
@@ -63,4 +77,7 @@ function sortearAmigo() {
     // Mostrar el resultado en el html    
     const resultado = document.getElementById('resultado');
     resultado.innerHTML = `El amigo sorteado: <strong>${amigoSorteado}</strong>`;
+
+
+    
 }
